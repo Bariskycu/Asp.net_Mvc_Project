@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model CarShop.Models.Urun
+<script defer src="/Content/js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="/Content/css/flexslider1.css" type="text/css" media="screen" />
+<script>
+    // Can also be used with $(document).ready()
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+        });
+    });
+</script>
+<div class="single">
+    <div class="container">
+        <div class="single-info">
+            <div class="col-md-6 single-top wow fadeInLeft animated" data-wow-delay=".5s">
+                <div class="flexslider">
+                    <ul class="slides">
+
+                        @{CarShop.Models.CarShopEntities db = new CarShop.Models.CarShopEntities();
+                            var resimlerr = db.Resimler.Where(x => x.ResimId == Model.ResimId);
+
+                            foreach (var item in resimlerr)
+                            {
+                                <li data-thumb="@item.ResimYolu">
+                                    <div class="thumb-image"> <img src="@item.ResimYolu" data-imagezoom="true" class="img-responsive" alt=""> </div>
+                                </li>
+                            }
+                        }
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 single-top-left simpleCart_shelfItem wow fadeInRight animated" data-wow-delay=".5s">
+                <h3>@Model.Baslik</h3>
+
+                <h6 class="item_price">@Model.Fiyat TL</h6>
+                <p></p>
+
+                <div class="clearfix"> </div>
+                <div class="btn_form">
+                    <a href="/Urun/SatinAl/@Model.Baslik" class="add-cart item_add">Satın Al</a>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="collpse tabs">
+            <div class="panel-group collpse" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default wow fadeInUp animated" data-wow-delay=".5s">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                TEKNİK ÖZELLİKLER
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <table class="table table-dark table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>MARKA</td>
+                                        <td>@Model.Marka</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MODEL(SERİ)</td>
+                                        <td>@Model.Model</td>
+                                    </tr>
+                                    <tr>
+                                        <td>YAKIT</td>
+                                        <td>@Model.Yakit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>VİTES</td>
+                                        <td>@Model.Vites</td>
+                                    </tr>
+                                    <tr>
+                                        <td>KASA TİPİ</td>
+                                        <td>@Model.KasaTipi</td>
+                                    </tr>
+                                    <tr>
+                                        <td>RENK</td>
+                                        <td>@Model.Renk</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--//collapse -->
+        <!--related-products-->
+        <!--//related-products-->
+    </div>
+</div>
+

@@ -1,0 +1,110 @@
+﻿@model CarShop.Models.Urun
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Yönetim.cshtml";
+}
+
+<h3><font color="red"> Bunu silmek istediğinizden emin misiniz?</font></h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimYol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimYol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yakit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yakit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vites)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vites)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KasaTipi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KasaTipi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Renk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Renk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "/Yonetim/Yonetim")
+        </div>
+    }
+</div>

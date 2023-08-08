@@ -1,0 +1,91 @@
+﻿@model IEnumerable<CarShop.Models.Urun>
+
+@{
+    ViewBag.Title = "Yonetim";
+    Layout = "~/Views/Shared/Yönetim.cshtml";
+}
+
+<h2>Araçlar</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResimYol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yakit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vites)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KasaTipi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Renk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategori)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResimId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResimYol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fiyat)
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Marka)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Model)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Yakit)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Vites)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.KasaTipi)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Renk)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategori)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResimId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UrunId },new {@class="btn btn-primary" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UrunId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

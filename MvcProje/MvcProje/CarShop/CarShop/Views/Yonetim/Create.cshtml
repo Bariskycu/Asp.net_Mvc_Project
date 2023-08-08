@@ -1,0 +1,233 @@
+﻿@model CarShop.Models.Urun
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Yönetim.cshtml";
+}
+
+<h2>Yeni Araç Ekle</h2>
+@using (Html.BeginForm("Create", "Yonetim", FormMethod.Post, new { enctype = "Multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group-lg">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Baslik)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Baslik)
+            @Html.ValidationMessageFor(model => model.Baslik)
+        </div>
+
+        <div class="editor-label">
+            Resim
+        </div>
+        <div class="editor-field">
+            <input type="file" name="resim" value="" />
+        </div>
+
+        <div class="editor-label">
+            Çoklu Resim
+        </div>
+        <div class="editor-field">
+            <input type="file" name="resimlerrr" value="" multiple />
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fiyat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fiyat)
+            @Html.ValidationMessageFor(model => model.Fiyat)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Kategori)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Kategori)
+            (1:Audi,2:Wolksvagen,3:Kia)
+            @Html.ValidationMessageFor(model => model.Kategori)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Marka)
+        </div>
+        <div class="editor-field">
+            @{
+                List<SelectListItem> markalar = new List<SelectListItem>();
+                markalar.Add(new SelectListItem
+                {
+                    Text = "Audi",
+                    Value = "Audi"
+                });
+                markalar.Add(new SelectListItem
+                {
+                    Text = "Wolksvagen",
+                    Value = "Wolksvagen",
+
+                });
+                markalar.Add(new SelectListItem
+                {
+                    Text = "Kia",
+                    Value = "Kia"
+                });
+            }
+            @Html.DropDownListFor(model => model.Marka, markalar, "")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Model)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Model)
+            @Html.ValidationMessageFor(model => model.Model)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Yakit)
+        </div>
+        <div class="bottom">
+            @{
+                List<SelectListItem> yakit = new List<SelectListItem>();
+                yakit.Add(new SelectListItem
+                {
+                    Text = "Benzin",
+                    Value = "Benzin"
+                });
+                yakit.Add(new SelectListItem
+                {
+                    Text = "Dizel",
+                    Value = "Dizel",
+
+                });
+
+            }
+            @Html.DropDownListFor(model => model.Yakit, yakit, "")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Vites)
+        </div>
+        <div class="bottom">
+            @{
+                List<SelectListItem> vites = new List<SelectListItem>();
+                vites.Add(new SelectListItem
+                {
+                    Text = "Manuel",
+                    Value = "Manuel"
+                });
+                vites.Add(new SelectListItem
+                {
+                    Text = "Otomatik",
+                    Value = "Otomatik",
+
+                });
+                vites.Add(new SelectListItem
+                {
+                    Text = "Yarı Otomatik",
+                    Value = "Yarı Otomatik",
+
+                });
+
+            }
+            @Html.DropDownListFor(model => model.Vites, vites, "")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.KasaTipi)
+        </div>
+        <div class="bottom">
+            @{
+                List<SelectListItem> kasaTipi = new List<SelectListItem>();
+                kasaTipi.Add(new SelectListItem
+                {
+                    Text = "Sedan",
+                    Value = "Sedan"
+                });
+                kasaTipi.Add(new SelectListItem
+                {
+                    Text = "Coupe",
+                    Value = "Coupe",
+
+                });
+                kasaTipi.Add(new SelectListItem
+                {
+                    Text = "Cabrio",
+                    Value = "Cabrio",
+
+                });
+
+            }
+            @Html.DropDownListFor(model => model.KasaTipi, kasaTipi, "")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Renk)
+        </div>
+        <div class="editor-field">
+            @{
+                List<SelectListItem> renk = new List<SelectListItem>();
+                renk.Add(new SelectListItem
+                {
+                    Text = "Sarı",
+                    Value = "Sarı"
+                });
+                renk.Add(new SelectListItem
+                {
+                    Text = "Kırmızı",
+                    Value = "Kırmızı",
+
+                });
+                renk.Add(new SelectListItem
+                {
+                    Text = "Gri",
+                    Value = "Gri",
+
+                });
+                renk.Add(new SelectListItem
+                {
+                    Text = "Siyah",
+                    Value = "Siyah",
+
+                });
+                renk.Add(new SelectListItem
+                {
+                    Text = "Beyaz",
+                    Value = "Beyaz",
+
+                });
+                renk.Add(new SelectListItem
+                {
+                    Text = "Mavi",
+                    Value = "Mavi",
+
+                });
+
+            }
+            @Html.DropDownListFor(model => model.Renk, renk, "")
+        </div>
+
+        <div class="center-block">
+            <div class="form-group">
+                <div class="col-lg-1">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                </div>
+                <div class="col-lg-6">
+                    @Html.ActionLink("Back to List", "/Yonetim/Yonetim")
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+

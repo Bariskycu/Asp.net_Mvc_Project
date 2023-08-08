@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CarShop.Models.Mesaj>
+
+@{
+    ViewBag.Title = "Mesaj";
+    Layout = "~/Views/Shared/Yönetim.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mesaj1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mesaj1)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "MesajDelete", new { id = item.MesajId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
